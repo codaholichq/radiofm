@@ -1,1 +1,34 @@
+spring:
+  application:
+    name: radiofm
+  main:
+    banner-mode: off
+  output:
+    ansi:
+      enabled: always
+  jpa:
+    generate-ddl: true
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        ddl-auto: create
+        format_sql: true
+        show-sql: true
 
+server:
+  address: ${APP_ADDRESS}
+  port: ${APP_PORT}
+  compression:
+    enabled: true
+  error:
+    include-message: always
+  shutdown: "graceful"
+  
+logging:
+  level:
+    root: WARN
+    org.springframework.web: DEBUG
+    org.hibernate: ERROR
+  file:
+    name: logs/todo.log
